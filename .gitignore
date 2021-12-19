@@ -1,0 +1,28 @@
+.idea/
+__pycache__/
+_data/
+derby
+
+# others
+*.pyc
+derby.log
+metastore_db
+all-ddls.hql
+logs
+venv
+spark-warehouse
+
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea
+*.iml
+*.iws
+
+# mac
+.DS_Store
+
