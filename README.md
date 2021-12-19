@@ -3,6 +3,11 @@
 This repo is for an end to end yet simple pyspark boilerplate 
 Please feel free to use it. 
 
+
+## Direcotry Structure
+
+![img.png](img.png)
+
 https://www.tutorialspoint.com/pyspark/pyspark_environment_setup.htm
 
 
