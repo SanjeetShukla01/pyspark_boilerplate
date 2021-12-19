@@ -8,7 +8,6 @@ Please feel free to use it.
 
 ![img.png](img.png)
 
-https://www.tutorialspoint.com/pyspark/pyspark_environment_setup.htm
 
 
 ## Features:
