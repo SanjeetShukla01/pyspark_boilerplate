@@ -1,4 +1,4 @@
-# PySpark boilerlpat for beginners
+# PySpark Boilerlpate for Beginners
 
 This repo is for an end to end yet simple pyspark boilerplate 
 Please feel free to use it. 
