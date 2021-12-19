@@ -8,12 +8,12 @@ https://www.tutorialspoint.com/pyspark/pyspark_environment_setup.htm
 
 ## Features:
 - Config Management  -- Present
-- Logging  -- Present
-- Modular code  -- Present
-- Unit Tests  -- WIP
-- Code Coverage Report -- WIP
-- Packaging -- WIP
-- Job Submission -- WIP
+- Logging            -- Present
+- Modular code       -- Present
+- Unit Tests         -- Work in Progress
+- Code Coverage Report -- Work in Progress
+- Packaging          -- Work in Progress
+- Job Submission -- Work in Progress
 
 ### To be Done:
 - Docker
