@@ -6,7 +6,7 @@ Please feel free to use it.
 
 ## Direcotry Structure
 
-![img.png](img.png)
+![img.png](dir_tree.png)
 
 
 
