@@ -1,6 +1,6 @@
 .idea/
 __pycache__/
-_data/
+data/output_data/
 derby
 
 # others

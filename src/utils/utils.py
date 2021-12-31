@@ -1,8 +1,9 @@
 """
-# data_utils for project pyspark_boilerplate
+# utils for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 12:15 AM 12/19/2021 using PyCharm
 """
 import configparser
+from pyspark.sql import SparkSession
 import logging.config
 from pyspark.sql import DataFrame, Row
 import os.path
@@ -31,11 +32,16 @@ def get_config(config_section: str, config_value: str):
     return config.get(config_section, config_value)
 
 
+def create_spark_session(app_name):
+    spark = SparkSession.builder \
+        .appName(app_name) \
+        .enableHiveSupport() \
+        .getOrCreate()
+    return spark
+
+
 class Utils:
     logging.config.fileConfig("config/logging.conf")
-
-    def __init__(self, spark):
-        self.spark = spark
 
     def create_test_data(self) -> DataFrame:
         """Create test input_data.
