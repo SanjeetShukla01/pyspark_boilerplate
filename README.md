@@ -11,15 +11,22 @@ Please feel free to use it.
 
 
 ## Features:
-- Config Management  -- Present
-- Logging            -- Present
-- Modular code       -- Present
-- Unit Tests         -- Work in Progress
-- Code Coverage Report -- Work in Progress
-- Packaging          -- Work in Progress
-- Job Submission -- Work in Progress
+- Config Management             -- Present
+- Logging                       -- Present
+- Modular code                  -- Present
+- Continuous Integration        -- Present
+- Continuous Deployment         -- TBD
+- Unit Tests                    -- Work in Progress
+- Code Coverage Report          -- Present
+- Packaging                     -- Work in Progress
+- Job Submission                -- Work in Progress
 
 ### To be Done:
 - Docker
-- CI CD
 - Airflow DAG 
+
+
+### Other Projects I am working on 
+1. Spark Scala Archetype
+2. Production grade ML Boilerplate
+3. Spark Java Archetype
