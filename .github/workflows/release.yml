@@ -1,4 +1,4 @@
-name: Releasing bmi app
+name: Releasing pyspark boilerplate
 
 on:
   release:
