@@ -3,11 +3,11 @@
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
 import logging
-import os
 from src.utils import column_constants
 from pyspark.sql.functions import col
 from pyspark.sql.types import DecimalType
 import logging.config
+
 
 class Transform:
     logging.config.fileConfig("config/logging.conf")
@@ -25,4 +25,3 @@ class Transform:
             .withColumnRenamed("avg(Happiness Score)", "avg_happiness_score")\
             .withColumn("avg_happiness_score", col("avg_happiness_score").cast(DecimalType(34, 4)))
         return tdf
-

@@ -1,0 +1,37 @@
+name: Build and Test on [Python 3.7, 3.8, 3.9] - with coverage - Checking coding standard and finding common security issues
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build project using Python - ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: install dependencies using pip
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install flake8 bandit
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -e .
+
+      - name: Running flake8 to adhere python coding standard
+        run: flake8 --ignore=E501,E265,W293,W292,E126 src
+
+      - name: Running Bandit to check any vulnaribility
+        run: bandit -r src
+
+#      - name: Running pytest with coverage report
+#        run:  coverage run -m pytest && coverage report -m

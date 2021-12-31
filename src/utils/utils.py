@@ -3,10 +3,8 @@
 # Created by @Sanjeet Shukla at 12:15 AM 12/19/2021 using PyCharm
 """
 import configparser
-import logging
 import logging.config
-from pyspark.sql import DataFrame, Row, SparkSession
-from pyspark.sql.functions import col, concat_ws, lit
+from pyspark.sql import DataFrame, Row
 import os.path
 
 
@@ -77,5 +75,3 @@ class Utils:
     def read_csv(self, file_path):
         df = self.spark.read.csv(file_path, header=True)
         return df
-
-

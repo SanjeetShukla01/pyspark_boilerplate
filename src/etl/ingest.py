@@ -2,12 +2,7 @@
 # ingest.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
-import logging
-import os
 
-import pyspark
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col
 from pyspark.sql.types import IntegerType
 import logging.config
 
