@@ -4,9 +4,6 @@
 """
 import sys
 import datetime
-
-import pyspark
-import os
 from pyspark.sql import SparkSession
 from src.etl import ingest, transform, load
 from src.utils import utils
