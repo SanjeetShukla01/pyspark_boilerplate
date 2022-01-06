@@ -3,7 +3,6 @@
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
 
-from pyspark.sql.types import IntegerType
 import logging.config
 
 
