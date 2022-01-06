@@ -39,14 +39,14 @@ class TransformTest(unittest.TestCase):
                              ])
         return data, schema
 
-    # def test_transform_should_return_transformed_data(self):
-    #     transform = Transform
-    #     spark = SparkSession.builder.appName("Preprocess Unit Test").getOrCreate()
-    #     data, schema = self.get_mock_input_df()
-    #     input_df = self.get_spark_df(spark, data, schema)
-    #     input_df.show()
-    #     actual_df = transform.transform_data(input_df)
-    #     self.assertEqual(3, 3)
+    def test_transform_should_return_transformed_data(self):
+        # Transform.transform_data()
+        # spark = SparkSession.builder.appName("Preprocess Unit Test").getOrCreate()
+        # data, schema = self.get_mock_input_df()
+        # input_df = self.get_spark_df(spark, data, schema)
+        # input_df.show()
+        # actual_df = transform.transform_data(input_df)
+        # self.assertEqual(3, 3)
 
     def test_transform_data(self):
         self.assertEqual(3, 3)
