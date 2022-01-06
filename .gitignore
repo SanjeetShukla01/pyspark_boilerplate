@@ -1,6 +1,6 @@
 .idea/
 __pycache__/
-_data/
+data/output_data/
 derby
 
 # others
@@ -11,6 +11,7 @@ all-ddls.hql
 logs
 venv
 spark-warehouse
+.coverage
 
 
 # Eclipse

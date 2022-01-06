@@ -3,7 +3,6 @@
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
 
-from pyspark.sql.types import IntegerType
 import logging.config
 
 
@@ -12,12 +11,6 @@ class Ingest:
 
     def __init__(self, spark):
         self.spark = spark
-
-    def ingest_source_data(self):
-        print("extracting source input_data")
-        my_list = [1, 2, 3]
-        df = self.spark.createDataFrame(my_list, IntegerType())
-        df.show()
 
     def read_csv(self, file_path):
         df = self.spark.read.csv(file_path, header=True)
