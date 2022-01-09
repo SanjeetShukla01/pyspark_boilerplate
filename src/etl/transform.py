@@ -2,11 +2,11 @@
 # transform.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
-import logging
+# import logging
 from src.utils import column_constants
 from pyspark.sql.functions import col
 from pyspark.sql.types import DecimalType
-import logging.config
+# import logging.config
 
 
 class Transform:
