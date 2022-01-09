@@ -10,14 +10,14 @@ import logging.config
 
 
 class Transform:
-    logging.config.fileConfig("config/logging.conf")
+    # logging.config.fileConfig("config/logging.conf")
 
     def __init__(self, spark):
         self.spark = spark
 
     def transform_data(self, df):
-        logger = logging.getLogger("Transform")
-        logger.info("Doing some data transformation")
+        # logger = logging.getLogger("Transform")
+        # logger.info("Doing some data transformation")
         columns = getattr(column_constants, "column_constants")
 
         tdf = df.filter(col(columns["HAPPINESS_RANK"]) < 20)\

@@ -3,19 +3,13 @@
 # Created by @Sanjeet Shukla at 10:38 AM 12/31/2021 using PyCharm
 """
 import unittest
-from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType, DecimalType, FloatType
-# from src.etl.transform import Transform
+import test.utils.test_utils
+from src.etl.transform import Transform
 
 
 class TransformTest(unittest.TestCase):
-    def get_spark_session(self):
-        self.spark = SparkSession.builder.appName("Preprocess Unit Test").getOrCreate()
-        return self.spark
-
-    def get_spark_df(self, spark, data, schema):
-        df = spark.createDataFrame(data=data, schema=schema)
-        return df
 
     def get_mock_input_df(self):
         """
@@ -26,33 +20,42 @@ class TransformTest(unittest.TestCase):
                 ("Iceland", "Western Europe", 2, 7.561, 0.04884, 1.30232, 1.40223, 0.94784, 0.62877, 0.14145, 0.4363, 2.70201)]
         schema = StructType([StructField("Country", StringType(), True),
                              StructField("Region", StringType(), True),
-                             StructField("Happinss Rank", IntegerType(), True),
-                             StructField("Happiness Score", DecimalType(), True),
+                             StructField("Happiness Rank", IntegerType(), True),
+                             StructField("Happiness Score", FloatType(), True),
                              StructField("Standard Error", FloatType(), True),
-                             StructField("Economy(GDP per Capita)", DecimalType(), True),
-                             StructField("Family", DecimalType(), True),
-                             StructField("Health(Life Expectancy)", FloatType(), True),
+                             StructField("Economy(GDP per Capita)", FloatType(), True),
+                             StructField("Family", FloatType(), True),
+                             StructField("Health (Life Expectancy)", FloatType(), True),
                              StructField("Freedom", FloatType(), True),
                              StructField("Trust(Government Corruption)", FloatType(), True),
                              StructField("Generosity", FloatType(), True),
-                             StructField("Dystopia Residual", DecimalType(), True),
+                             StructField("Dystopia Residual", FloatType(), True),
                              ])
         return data, schema
-
-    def test_transform_should_return_transformed_data(self):
-        # Transform.transform_data()
-        # spark = SparkSession.builder.appName("Preprocess Unit Test").getOrCreate()
-        # data, schema = self.get_mock_input_df()
-        # input_df = self.get_spark_df(spark, data, schema)
-        # input_df.show()
-        # actual_df = transform.transform_data(input_df)
-        # self.assertEqual(3, 3)
 
     def test_transform_data(self):
         self.assertEqual(3, 3)
 
     def test_another_test(self):
         self.assertTrue("PYTHON".isupper())
+
+    def test_transform_df(self):
+        tester = test.utils.test_utils.TestUtils()
+        spark = tester.get_spark_session()
+        data, schema = self.get_mock_input_df()
+        input_df = tester.get_spark_df(spark, data, schema)
+
+        transformer = Transform(spark)
+        transformed_df = transformer.transform_data(input_df)
+
+        data, schema = self.get_mock_input_df()
+        expected_df = tester.get_spark_df(spark, data, schema)
+        expected_df = expected_df.filter(col("Happiness Rank") < 20) \
+            .groupBy("Region").agg({"Happiness Score": "avg", "Health (Life Expectancy)": "max"}) \
+            .withColumnRenamed("avg(Happiness Score)", "avg_happiness_score") \
+            .withColumn("avg_happiness_score", col("avg_happiness_score").cast(DecimalType(34, 4)))
+        assert (tester.compare_data_frames(transformed_df, expected_df))
+
 
 
 if __name__ == "__main__":
