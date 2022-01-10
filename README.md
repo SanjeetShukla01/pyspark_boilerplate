@@ -1,7 +1,7 @@
 # PySpark Boilerlpate for Beginners
 
 
-![example workflow](https://github.com/jackshukla7/pyspark_boilerplate/actions/workflows/publish.yml/badge.svg)
+[<img src="https://github.com/jackshukla7/pyspark_boilerplate/actions/workflows/publish.yml/badge.svg">](https://github.com/jackshukla7/pyspark_boilerplate/actions)
 
 This repo is for an end to end yet simple pyspark boilerplate 
 Please feel free to use it. 
