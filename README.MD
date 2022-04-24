@@ -28,7 +28,6 @@ Please feel free to use it.
 - Docker
 - Airflow DAG 
 
-
 ### Other Projects I am working on 
 1. Spark Scala Archetype
 2. Production grade ML Boilerplate
