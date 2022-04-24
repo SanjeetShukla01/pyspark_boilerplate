@@ -2,17 +2,19 @@
 # ingest.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
+import os
+import pathlib
 
-import logging.config
-
+from etl_jobs.utils.logging_utils import Logger
+# logger = Logger("ingest").get_logger()
 
 class Ingest:
-    logging.config.fileConfig("config/logging.conf")
 
     def __init__(self, spark):
         self.spark = spark
 
     def read_csv(self, file_path):
+        # logger.info("inside ingest class")
         df = self.spark.read.csv(file_path, header=True)
         return df
         # df.describe().show()
