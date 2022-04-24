@@ -1,18 +1,20 @@
 """
 # app.py for project pyspark_boilerplate
-# Created by @Sanjeet Shukla at 10:30 PM 12/18/2021 using PyCharm
+# Created by @Sanjeet Shukla at 4:26 PM 4/24/2022 using PyCharm
 """
+import os
 import sys
 import datetime
 from pyspark.sql import SparkSession
-from src.etl import ingest, transform, load
-from src.utils import utils
-import logging
-import logging.config
+from etl_jobs.data import ingest, transform, load
+from etl_jobs.utils import utils
+from etl_jobs.utils.logging_utils import Logger
 
+logger = Logger("main").get_logger()
 
 class Pipeline:
-    logging.config.fileConfig("config/logging.conf")
+
+    logger.info("starting pipeline")
 
     def partitioned_output_path(self, file_path):
         """
@@ -22,7 +24,7 @@ class Pipeline:
         """
         file_path = file_path + '/' + str(datetime.datetime.today().year) + '/' + str(
             datetime.datetime.today().month) + '/' + str(datetime.datetime.today().day)
-        logging.info("file_path: " + file_path)
+        logger.info("file_path: " + file_path)
         return file_path
 
     def run_pipeline(self):
@@ -40,21 +42,22 @@ class Pipeline:
             persist_process = load.Persist(self.spark)
             persist_process.dump_data(tdf, self.partitioned_output_path(output_path))
         except Exception as exp:
-            logging.error("An error occurred while running the pipeline > " + str(exp))
+            logger.error("An error occurred while running the pipeline > " + str(exp))
             # send email notification or log to database
             sys.exit(1)
 
     def create_spark_session(self):
+        logger.info("creating spark session ")
         self.spark = SparkSession.builder\
             .appName("myPySparkApp")\
             .enableHiveSupport()\
             .getOrCreate()
+        logger.info("spark session created")
+        return self.spark
 
 
 if __name__ == "__main__":
-    logging.info("running pipeline")
+    logger.info("running pipeline")
     pipeline = Pipeline()
     pipeline.create_spark_session()
     pipeline.run_pipeline()
-
-

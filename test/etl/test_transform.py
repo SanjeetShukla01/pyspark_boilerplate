@@ -6,7 +6,7 @@ import unittest
 from pyspark.sql.functions import col
 from pyspark.sql.types import StructField, StructType, StringType, IntegerType, DecimalType, FloatType
 import test.utils.test_utils
-from src.etl.transform import Transform
+from etl_jobs.data.transform import Transform
 
 
 class TransformTest(unittest.TestCase):

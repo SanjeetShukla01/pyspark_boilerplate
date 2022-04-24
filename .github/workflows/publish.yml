@@ -1,4 +1,4 @@
-name: Build 
+name: Build
 #and Test on [Python 3.7, 3.8, 3.9] - with coverage - Checking coding standard and finding common security issues
 on:
   push:
@@ -28,10 +28,10 @@ jobs:
           pip install -e .
 
       - name: Running flake8 to adhere python coding standard
-        run: flake8 --ignore=E501,E265,W293,W292,E126 src
+        run: flake8 --ignore=E501,E265,W293,W292,E126 etl_jobs
 
       - name: Running Bandit to check any vulnaribility
-        run: bandit -r src
+        run: bandit -r etl_jobs
 
 #      - name: Running pytest with coverage report
 #        run:  coverage run -m pytest && coverage report -m

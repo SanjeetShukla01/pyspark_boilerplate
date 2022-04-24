@@ -28,7 +28,7 @@ def dump_data(df: DataFrame, path: str) -> None:
 
 def get_config(config_section: str, config_value: str):
     config = configparser.ConfigParser()
-    config.read("config/pipeline.cfg")
+    config.read("../../config/pipeline.cfg")
     return config.get(config_section, config_value)
 
 
@@ -41,7 +41,7 @@ def create_spark_session(app_name):
 
 
 class Utils:
-    logging.config.fileConfig("config/logging.conf")
+    # logging.config.fileConfig("config/logging.conf")
 
     def create_test_data(self) -> DataFrame:
         """Create test input_data.
