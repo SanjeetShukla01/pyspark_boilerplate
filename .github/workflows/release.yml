@@ -22,10 +22,10 @@ jobs:
           pip install -e .
 
       - name: Running flake8 to adhere python coding standard
-        run: flake8 --ignore=E501,E265,W293,W292,E126 src
+        run: flake8 --ignore=E501,E265,W293,W292,E126 etl
 
       - name: Running Bandit to check any vulnaribility
-        run: bandit -r src
+        run: bandit -r etl
 
 #      - name: Running pytest with coverage report
 #        run: coverage run -m pytest && coverage report -m
