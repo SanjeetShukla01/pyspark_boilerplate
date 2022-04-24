@@ -2,13 +2,13 @@
 # transform.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
-import logging
 from etl.utils import column_constants
 from pyspark.sql.functions import col
 from pyspark.sql.types import DecimalType
 from etl.utils.logging_utils import Logger
 
 logger = Logger("transform").get_logger()
+
 
 class Transform:
 

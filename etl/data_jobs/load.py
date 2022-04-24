@@ -2,12 +2,8 @@
 # load.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
-import logging
-import os
-import pathlib
 
 from pyspark.sql.dataframe import DataFrame
-import logging.config
 
 from etl.utils.logging_utils import Logger
 logger = Logger("load").get_logger()
@@ -28,4 +24,3 @@ class Persist:
         except Exception as exp:
             logger.error("An error occured while persisting data > " + str(exp))
             raise Exception("HDFS Directory Already Exists")
-

@@ -2,7 +2,6 @@
 # app.py for project pyspark_boilerplate
 # Created by @Sanjeet Shukla at 4:26 PM 4/24/2022 using PyCharm
 """
-import os
 import sys
 import datetime
 from pyspark.sql import SparkSession
@@ -11,6 +10,7 @@ from etl.utils import utils
 from etl.utils.logging_utils import Logger
 
 logger = Logger("main").get_logger()
+
 
 class Pipeline:
 

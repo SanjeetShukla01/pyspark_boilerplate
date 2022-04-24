@@ -8,7 +8,8 @@ import logging
 import os
 import sys
 
-class Logger():
+
+class Logger:
 
     # To create a singleton class
     _unique_instance = None
