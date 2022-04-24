@@ -6,9 +6,9 @@ import os
 import sys
 import datetime
 from pyspark.sql import SparkSession
-from etl_jobs.data import ingest, transform, load
-from etl_jobs.utils import utils
-from etl_jobs.utils.logging_utils import Logger
+from etl.data_jobs import ingest, transform, load
+from etl.utils import utils
+from etl.utils.logging_utils import Logger
 
 logger = Logger("main").get_logger()
 

@@ -9,7 +9,7 @@ LONG_DESC_TYPE = "text/markdown"
 setup(
     name='pyspark_boilerplate',
     version='0.1.0',
-    packages=['src', 'src.app', 'src.etl', 'src.utils', 'test', 'config'],
+    packages=['etl', 'etl.app', 'etl.data_jobs', 'etl.utils', 'test', 'config'],
     url='',
     license='MIT',
     author='Sanjet Shukla',

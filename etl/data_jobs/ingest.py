@@ -5,7 +5,7 @@
 import os
 import pathlib
 
-from etl_jobs.utils.logging_utils import Logger
+from etl.utils.logging_utils import Logger
 # logger = Logger("ingest").get_logger()
 
 class Ingest:

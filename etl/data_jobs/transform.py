@@ -3,10 +3,10 @@
 # Created by @Sanjeet Shukla at 10:33 PM 12/18/2021 using PyCharm
 """
 import logging
-from etl_jobs.utils import column_constants
+from etl.utils import column_constants
 from pyspark.sql.functions import col
 from pyspark.sql.types import DecimalType
-from etl_jobs.utils.logging_utils import Logger
+from etl.utils.logging_utils import Logger
 
 logger = Logger("transform").get_logger()
 

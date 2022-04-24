@@ -9,7 +9,7 @@ import pathlib
 from pyspark.sql.dataframe import DataFrame
 import logging.config
 
-from etl_jobs.utils.logging_utils import Logger
+from etl.utils.logging_utils import Logger
 logger = Logger("load").get_logger()
 
 
